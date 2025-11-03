@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import DetalleAutorizacion from './DetalleAutorizacion.vue'
+
+const selectedNotification = ref(null)
 
 const notifications = ref([
   {
@@ -9,7 +12,20 @@ const notifications = ref([
     type: 'Autorización de Cliente',
     person: 'JUAN CARLOS ARANA',
     action: 'ALTA DE EMPEÑO',
-    actionType: 'alta'
+    actionType: 'alta',
+    pin: '1234',
+    idSucursal: 'SUCURSAL LAS FLORES',
+    nombre: 'JUAN CARLOS',
+    caja: 'N01',
+    apellidoPaterno: 'TORREZ',
+    monto: '$3,000.00',
+    apellidoMaterno: 'ÁLVAREZ',
+    tipoOperacion: 'ALTA DE EMPEÑO',
+    ineOcr: 'ITNB23148',
+    fechaSolicitud: '31/10/2025',
+    colaborador: 'MARÍA MARTÍNEZ BARRERA',
+    horarioSolicitud: '10:00 AM',
+    status: 'APROBADO'
   },
   {
     id: 2,
@@ -18,7 +34,20 @@ const notifications = ref([
     type: 'Autorización rechazada',
     person: 'GABRIELA CASTILLO CASTRO',
     action: 'ALTA DE EMPEÑO',
-    actionType: 'alta'
+    actionType: 'alta',
+    pin: '2205',
+    idSucursal: 'SUCURSAL LAS FLORES',
+    nombre: 'GABRIELA',
+    caja: 'N01',
+    apellidoPaterno: 'CASTILLO',
+    monto: '$3,000.00',
+    apellidoMaterno: 'CASTRO',
+    tipoOperacion: 'ALTA DE EMPEÑO',
+    ineOcr: 'IINB23148',
+    fechaSolicitud: '31/10/2025',
+    colaborador: 'MARÍA MARTÍNEZ BARRERA',
+    horarioSolicitud: '11:59 AM',
+    status: 'RECHAZADO'
   },
   {
     id: 3,
@@ -27,7 +56,20 @@ const notifications = ref([
     type: 'Autorización de Cliente',
     person: 'MARIA ISABEL CASTRO GÓMEZ',
     action: 'BAJA DE EMPEÑO',
-    actionType: 'baja'
+    actionType: 'baja',
+    pin: '3316',
+    idSucursal: 'SUCURSAL LAS FLORES',
+    nombre: 'MARIA ISABEL',
+    caja: 'N02',
+    apellidoPaterno: 'CASTRO',
+    monto: '$2,500.00',
+    apellidoMaterno: 'GÓMEZ',
+    tipoOperacion: 'BAJA DE EMPEÑO',
+    ineOcr: 'MICG45678',
+    fechaSolicitud: '01/11/2025',
+    colaborador: 'CARLOS LÓPEZ RUIZ',
+    horarioSolicitud: '11:45 AM',
+    status: 'APROBADO'
   },
   {
     id: 4,
@@ -36,9 +78,30 @@ const notifications = ref([
     type: 'Autorización de Cliente',
     person: 'PEDRO MUÑOZ LLANES',
     action: 'ALTA DE EMPEÑO',
-    actionType: 'alta'
+    actionType: 'alta',
+    pin: '4427',
+    idSucursal: 'SUCURSAL CENTRO',
+    nombre: 'PEDRO',
+    caja: 'N03',
+    apellidoPaterno: 'MUÑOZ',
+    monto: '$4,200.00',
+    apellidoMaterno: 'LLANES',
+    tipoOperacion: 'ALTA DE EMPEÑO',
+    ineOcr: 'PMUL78945',
+    fechaSolicitud: '01/11/2025',
+    colaborador: 'ANA RODRÍGUEZ PÉREZ',
+    horarioSolicitud: '12:15 PM',
+    status: 'APROBADO'
   }
 ])
+
+const openDetail = (notification) => {
+  selectedNotification.value = notification
+}
+
+const closeDetail = () => {
+  selectedNotification.value = null
+}
 
 const showMore = () => {
   console.log('Ver más notificaciones...')
@@ -52,7 +115,8 @@ const showMore = () => {
         <div 
           v-for="notification in notifications" 
           :key="notification.id"
-          class="border-2 border-[#7A5CFA] rounded-lg p-4 bg-white hover:shadow-md transition-shadow"
+          @click="openDetail(notification)"
+          class="border-2 border-[#7A5CFA] rounded-lg p-4 bg-white hover:shadow-md transition-shadow cursor-pointer"
         >
           <div class="flex justify-between items-start">
             <div class="flex gap-6">
@@ -91,6 +155,12 @@ const showMore = () => {
         </button>
       </div>
     </div>
+
+    <DetalleAutorizacion 
+      v-if="selectedNotification"
+      :notification="selectedNotification"
+      @close="closeDetail"
+    />
   </div>
 </template>
 
