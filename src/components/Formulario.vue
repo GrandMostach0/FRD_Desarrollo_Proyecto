@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+</script>
 
 <template>
     <br>
@@ -66,7 +70,7 @@
         
         <div class="flex items-center justify-center gap-50">
             <button>Solicitar</button>
-            <button>Cancelar</button>
+            <button @click="router.push('/')">Cancelar</button>
         </div>
 
     </form>

@@ -1,11 +1,19 @@
 <script setup>
 import closeIcon from '../assets/icons/close-icon.vue';
+
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
+const closeModal = () => {
+    router.push('/');
+}
+
 </script>
 
 <template>
     <div class="flex h-full items-center justify-center">
         <div id="modalPin" class="flex flex-col justify-around rounded-2xl h-[60%] w-[500px] text-center bg-[#F2F2F7] relative p-10">
-            <div class="absolute top-4 right-5 cursor-pointer text-gray-500">
+            <div @click="closeModal" class="absolute top-4 right-5 cursor-pointer text-gray-500">
                 <closeIcon/>
             </div>
             <h2 class="text-2xl font-bold text-gray-600">Para continuar se necesita PIN de autorización.</h2>

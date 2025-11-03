@@ -12,7 +12,7 @@ import InputView from './Input-view.vue';
     </div>
     
     <div class="flex-3 bg-white rounded-2xl h-[90vh]">
-      <InputView />
+      <RouterView />
     </div>
 
   </main>

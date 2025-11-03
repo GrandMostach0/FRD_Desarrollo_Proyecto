@@ -1,14 +1,20 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Hello from '../components/Operador-Ventana.vue';
+import OperadorView from '../components/Operador-Ventana.vue';
 import AdiosTap from "../components/Administrador-Ventana.vue";
+import Formulario from "../components/Formulario.vue";
+import InputView from "../components/Input-view.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
-            name: 'Hello',
-            component: Hello
+            name: 'operador',
+            component: OperadorView,
+            children: [
+                { path: 'solicitud', component: Formulario},
+                { path: 'VistaPin', component: InputView}
+            ]
         },
         {
             path: '/adios',
