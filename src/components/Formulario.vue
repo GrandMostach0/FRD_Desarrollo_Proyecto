@@ -10,7 +10,7 @@ const router = useRouter();
     <br>
     <h5 class="text-center uppercase text-xl">registro de solicitud</h5>
     <br>
-    <form action="" class="px-5 py-2">
+    <form action="" class="px-5 py-2 text-red">
         <div class="flex gap-5 ">
             <div class="flex-1">
                 <div class="containerInputs">
