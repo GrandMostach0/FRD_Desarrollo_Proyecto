@@ -6,6 +6,7 @@ import Formulario from "../components/Formulario.vue";
 import InputView from "../components/Input-view.vue";
 import NotFoundView from "../components/NotFound-View.vue";
 import Bienvenido from "../components/Bienvenido.vue";
+import Notificaciones from "../components/Notificaciones.vue";
 
 // Vistas hijas de la parte de administrador
 import ListaRegistrosCards from "../components/ListaRegistros-cards.vue";
@@ -24,7 +25,8 @@ const router = createRouter({
             children: [
                 { path: '/bienvenido', component: Bienvenido},
                 { path: '/solicitud', component: Formulario},
-                { path: '/VistaPin', component: InputView}
+                { path: '/VistaPin', component: InputView},
+                { path: '/notificaciones', component: Notificaciones}
             ]
         },
         {
