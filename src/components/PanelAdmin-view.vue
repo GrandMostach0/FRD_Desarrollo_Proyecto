@@ -10,7 +10,7 @@ import ListaRegistrosCards from './ListaRegistros-cards.vue';
         <menuOpcionesAdministrador />
     </div>
     
-    <div class="flex-3 bg-white rounded-2xl h-[90vh] p-5">
+    <div class="flex-3 bg-white rounded-2xl h-[90vh] p-5 overflow-y-scroll">
       <ListaRegistrosCards />
     </div>
 

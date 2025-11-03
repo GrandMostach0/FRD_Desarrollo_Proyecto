@@ -5,6 +5,9 @@ import Formulario from "../components/Formulario.vue";
 import InputView from "../components/Input-view.vue";
 import NotFoundView from "../components/NotFound-View.vue";
 
+// Vistas hijas de la parte de administrador
+import ListaRegistrosCards from "../components/ListaRegistros-cards.vue";
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -20,7 +23,10 @@ const router = createRouter({
         {
             path: '/panelAdmin',
             name: 'administrador',
-            component: AdministradorView
+            component: AdministradorView,
+            children: [
+                { path: 'registrosSolicitud', component: ListaRegistrosCards}
+            ]
         },
         {
             path: '/:pathMatch(.*)*',

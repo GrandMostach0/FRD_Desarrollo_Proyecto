@@ -22,8 +22,8 @@ const navigate = (path, name) => {
   <div>
     <ol>
       <li 
-        :class="{ activate: activeItem === 'solicitud' }"
-        @click="navigate('/solicitud', 'solicitud')"
+        :class="{ activate: activeItem === 'registros' }"
+        @click="navigate('/panelAdmin/registrosSolicitud', 'registros')"
       >
         <fileIcon /> Recepción de Solicitudes
       </li>
