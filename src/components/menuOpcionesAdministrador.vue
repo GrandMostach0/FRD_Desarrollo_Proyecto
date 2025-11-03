@@ -32,7 +32,7 @@ const navigate = (path, name) => {
         :class="{ activate: activeItem === 'pin' }"
         @click="navigate('/VistaPin', 'pin')"
       >
-        <filesIcons /> de Solicitudes
+        <filesIcons /> Historial de Solicitudes
       </li>
     </ol>
   </div>
