@@ -5,11 +5,11 @@ import passwordIcon from '../assets/icons/password-icon.vue'
 </script>
 
 <template>
-    <p>
+    <p class="font-bold text-[#7A5CFA] p-5">
         <listIcon />
     </p>
 
-    <div class="px-4">
+    <div>
         <ol>
             <li>
                 <circlePlus />Nueva Solicitud
@@ -26,9 +26,16 @@ import passwordIcon from '../assets/icons/password-icon.vue'
 
 li{
     display: flex;
-    margin: 8px 0px;
-    padding: 2px;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 10px;
     gap: 5px;
     cursor: pointer;
+    color: #7A5CFA;
+    font-weight: bold;
+}
+
+li:hover{
+    border-right: 3px solid #7A5CFA;
 }
 </style>

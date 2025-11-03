@@ -6,11 +6,11 @@ import Formulario from './Formulario.vue';
 <template>
   <main class="flex items-center gap-5 px-16 py-8">
 
-    <div class="border-2 border-black flex-1 p-5 rounded-2xl">
+    <div class="flex-1 rounded-2xl h-[500px] bg-white">
       <MenuOpcionesVertical />
     </div>
     
-    <div class="border-2 border-black flex-3">
+    <div class="flex-3 bg-white rounded-2xl">
       <Formulario />
     </div>
 

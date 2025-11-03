@@ -14,22 +14,22 @@
 
                 <div class="containerInputs">
                     <label for="apellidoPaterno">apellido paterno</label>
-                    <input type="text" name="apellidoPaterno" id="apellidoPaterno" placeholder="TORRES">
+                    <input type="text" name="apellidoPaterno" id="apellidoPaternoInput" placeholder="TORRES">
                 </div>
 
                 <div class="containerInputs">
                     <label for="apellidoMaterno">apellido materno</label>
-                    <input type="text" name="apellidoMaterno" id="apellidoMaterno" placeholder="ÁLVARES">
+                    <input type="text" name="apellidoMaterno" id="apellidoMaternoInput" placeholder="ÁLVARES">
                 </div>
 
                 <div class="containerInputs">
-                    <label for="nombre">ine (ocr)</label>
-                    <input type="text" name="nombre" id="nombreInput" placeholder="">
+                    <label for="ine">ine (ocr)</label>
+                    <input type="text" name="ine" id="ineInput" placeholder="IINB78976">
                 </div>
                 
                 <div class="containerInputs">
                     <label for="colaborador">Colaborador</label>
-                    <input type="text" name="colaborador" id="colaborador" placeholder="MARÍA MARTINEZ BARRERA">
+                    <input type="text" name="colaborador" id="colaboradorInput" placeholder="MARÍA MARTINEZ BARRERA">
                 </div>
             </div>
 
@@ -75,7 +75,7 @@
 <style scoped>
 
 .containerInputs{
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label, input{
@@ -85,18 +85,32 @@ label, input{
 label{
     text-transform: uppercase;
     font-size: smaller;
+    margin-bottom: 5px;
+    color: gray;
 }
 
 input, select{
     width: 100%;
-    padding: 8px;
-    border: 1px solid gray;
-    border-radius: 5px;
+    padding: 12px;
+    border: 1px solid rgba(128, 128, 128, .5);
+    border-radius: 10px;
+    text-transform: uppercase;
 }
 
 button{
-    padding: 8px;
-    background-color: blueviolet;
+    padding: 8px 64px;
+    background-color: #7A5CFA;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+input:focus, select:focus{
+    outline: 3px solid #7A5CFA;
+}
+
+option:hover{
+    background-color: #7A5CFA;
 }
 
 </style>
