@@ -4,8 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    tailwindcss(),
+  ],
   server: {
     host: '0.0.0.0',
     port: 5000,
@@ -20,10 +22,4 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5000
   }
-
-  plugins: [
-    vue(),
-    tailwindcss(),
-  ],
-
 })
