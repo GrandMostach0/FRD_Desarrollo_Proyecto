@@ -109,8 +109,4 @@ input:focus, select:focus{
     outline: 3px solid #7A5CFA;
 }
 
-option:hover{
-    background-color: #7A5CFA;
-}
-
 </style>
