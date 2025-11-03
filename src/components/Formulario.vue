@@ -1,7 +1,9 @@
 <script setup>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
+
 </script>
 
 <template>
@@ -13,7 +15,7 @@ const router = useRouter();
             <div class="flex-1">
                 <div class="containerInputs">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombreInput" placeholder="JUAN CARLOS">
+                    <input type="text" name="nombre" id="nombreInput" placeholder="JUAN CARLOS" required>
                 </div>
 
                 <div class="containerInputs">
@@ -28,7 +30,8 @@ const router = useRouter();
 
                 <div class="containerInputs">
                     <label for="ine">ine (ocr)</label>
-                    <input type="text" name="ine" id="ineInput" placeholder="IINB78976">
+                    <input type="text" name="ine" id="ineInput" maxlength="13" placeholder="IINB78976">
+                    <span class="text-xs text-[#EB5757]">Error message informing me of a problem</span>
                 </div>
                 
                 <div class="containerInputs">
@@ -52,9 +55,9 @@ const router = useRouter();
                     <input type="text" name="caja" id="cajaInput" placeholder="N01">
                 </div>
 
-                <div class="containerInputs">
+                <div class="sin-flechitas containerInputs">
                     <label for="monto">monto</label>
-                    <input type="number" name="monto" id="montoInput" placeholder="$">
+                    <input class="relative" type="number" name="monto" id="montoInput" placeholder="$">
                 </div>
 
                 <div class="containerInputs">
@@ -69,8 +72,8 @@ const router = useRouter();
 
         
         <div class="flex items-center justify-center gap-50">
-            <button>Solicitar</button>
-            <button @click="router.push('/')">Cancelar</button>
+            <button type="submit">Solicitar</button>
+            <button type="reset" @click="router.push('/')">Cancelar</button>
         </div>
 
     </form>
@@ -110,7 +113,7 @@ button{
 }
 
 input:focus, select:focus{
-    outline: 3px solid #7A5CFA;
+    outline: 3px solid rgb(122, 92, 250);
 }
 
 </style>

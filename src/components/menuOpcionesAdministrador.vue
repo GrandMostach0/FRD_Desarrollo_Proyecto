@@ -1,7 +1,6 @@
 <script setup>
-import listIcon from '../assets/icons/list-icon.vue'
-import circlePlus from '../assets/icons/circle-plus.vue'
-import passwordIcon from '../assets/icons/password-icon.vue'
+import fileIcon from '../assets/icons/file-icon.vue'
+import filesIcons from '../assets/icons/files-icons.vue'
 
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -26,14 +25,14 @@ const navigate = (path, name) => {
         :class="{ activate: activeItem === 'solicitud' }"
         @click="navigate('/solicitud', 'solicitud')"
       >
-        <circlePlus /> Nueva Solicitud
+        <fileIcon /> Recepción de Solicitudes
       </li>
 
       <li 
         :class="{ activate: activeItem === 'pin' }"
         @click="navigate('/VistaPin', 'pin')"
       >
-        <passwordIcon /> PIN
+        <filesIcons /> de Solicitudes
       </li>
     </ol>
   </div>
