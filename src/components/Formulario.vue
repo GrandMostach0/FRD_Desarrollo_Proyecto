@@ -1,82 +1,107 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import likeIcon from '../assets/icons/like-icon.vue';
 
 const router = useRouter();
+
+const mostrarModal = ref(false);
+const aprobar = () => {
+    mostrarModal.value = true;
+
+    setTimeout(() => {
+        mostrarModal.value = false;
+        router.push('/');
+    }, 1500)
+}
 
 </script>
 
 <template>
-    <br>
-    <h5 class="text-center uppercase text-xl">registro de solicitud</h5>
-    <br>
-    <form action="" class="px-5 py-2 text-red">
-        <div class="flex gap-5 ">
-            <div class="flex-1">
-                <div class="containerInputs">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombreInput" placeholder="JUAN CARLOS" required>
-                </div>
+    <div class="relative">
+        <br>
+        <h5 class="text-center uppercase text-xl">registro de solicitud</h5>
+        <br>
 
-                <div class="containerInputs">
-                    <label for="apellidoPaterno">apellido paterno</label>
-                    <input type="text" name="apellidoPaterno" id="apellidoPaternoInput" placeholder="TORRES">
-                </div>
+        <div v-show="mostrarModal" id="modalAceptacion" class="absolute w-full h-[90%] flex items-center justify-center z-5 cursor-default">
+            <div class="bg-[#F2F2F7] w-[50%] h-[50%] rounded-2xl flex items-center justify-around flex-col">
+                <likeIcon class="text-[#7A5CFA]" tamanio="100"/>
 
-                <div class="containerInputs">
-                    <label for="apellidoMaterno">apellido materno</label>
-                    <input type="text" name="apellidoMaterno" id="apellidoMaternoInput" placeholder="ÁLVARES">
-                </div>
-
-                <div class="containerInputs">
-                    <label for="ine">ine (ocr)</label>
-                    <input type="text" name="ine" id="ineInput" maxlength="13" placeholder="IINB78976">
-                    <span class="text-xs text-[#EB5757]">Error message informing me of a problem</span>
-                </div>
-                
-                <div class="containerInputs">
-                    <label for="colaborador">Colaborador</label>
-                    <input type="text" name="colaborador" id="colaboradorInput" placeholder="MARÍA MARTINEZ BARRERA">
-                </div>
-            </div>
-
-            <div class="flex-1">
-                <div class="containerInputs">
-                    <label for="selectSucursal">nombre de la sucursal</label>
-                    <select name="selectSucursal" id="selectSucursal">
-                        <option value="1">Buscar</option>
-                        <option value="2">Sucursal 1</option>
-                        <option value="3">Sucursal 2</option>
-                    </select>
-                </div>
-
-                <div class="containerInputs">
-                    <label for="caja">caja</label>
-                    <input type="text" name="caja" id="cajaInput" placeholder="N01">
-                </div>
-
-                <div class="sin-flechitas containerInputs">
-                    <label for="monto">monto</label>
-                    <input class="relative" type="number" name="monto" id="montoInput" placeholder="$">
-                </div>
-
-                <div class="containerInputs">
-                    <label for="tipoOperacion">tipo de operación</label>
-                    <select name="tipoOperacion" id="tipoOperacionSelect">
-                        <option value="1">ALTA DE EMPEÑO</option>
-                        <option value="2">BAJA DE EMPEÑO</option>
-                    </select>
-                </div>
+                <h1 class="text-4xl text-center">
+                    Se ha enviado la solicitud
+                </h1>
             </div>
         </div>
 
-        
-        <div class="flex items-center justify-center gap-50">
-            <button type="submit">Solicitar</button>
-            <button type="reset" @click="router.push('/')">Cancelar</button>
-        </div>
+        <form @submit.prevent="aprobar" action="" class="px-5 py-2 text-red">
 
-    </form>
+            <div class="flex gap-5 ">
+                <div class="flex-1">
+                    <div class="containerInputs">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombreInput" placeholder="JUAN CARLOS" required>
+                    </div>
+
+                    <div class="containerInputs">
+                        <label for="apellidoPaterno">apellido paterno</label>
+                        <input type="text" name="apellidoPaterno" id="apellidoPaternoInput" placeholder="TORRES">
+                    </div>
+
+                    <div class="containerInputs">
+                        <label for="apellidoMaterno">apellido materno</label>
+                        <input type="text" name="apellidoMaterno" id="apellidoMaternoInput" placeholder="ÁLVARES">
+                    </div>
+
+                    <div class="containerInputs">
+                        <label for="ine">ine (ocr)</label>
+                        <input type="text" name="ine" id="ineInput" maxlength="13" placeholder="IINB78976">
+                        <span class="text-xs text-[#EB5757]">Error message informing me of a problem</span>
+                    </div>
+                    
+                    <div class="containerInputs">
+                        <label for="colaborador">Colaborador</label>
+                        <input type="text" name="colaborador" id="colaboradorInput" placeholder="MARÍA MARTINEZ BARRERA">
+                    </div>
+                </div>
+
+                <div class="flex-1">
+                    <div class="containerInputs">
+                        <label for="selectSucursal">nombre de la sucursal</label>
+                        <select name="selectSucursal" id="selectSucursal">
+                            <option value="1">Buscar</option>
+                            <option value="2">Sucursal 1</option>
+                            <option value="3">Sucursal 2</option>
+                        </select>
+                    </div>
+
+                    <div class="containerInputs">
+                        <label for="caja">caja</label>
+                        <input type="text" name="caja" id="cajaInput" placeholder="N01">
+                    </div>
+
+                    <div class="sin-flechitas containerInputs">
+                        <label for="monto">monto</label>
+                        <input class="relative" type="number" name="monto" id="montoInput" placeholder="$">
+                    </div>
+
+                    <div class="containerInputs">
+                        <label for="tipoOperacion">tipo de operación</label>
+                        <select name="tipoOperacion" id="tipoOperacionSelect">
+                            <option value="1">ALTA DE EMPEÑO</option>
+                            <option value="2">BAJA DE EMPEÑO</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="flex items-center justify-center gap-50">
+                <button type="submit">Solicitar</button>
+                <button type="reset" @click="router.push('/')">Cancelar</button>
+            </div>
+
+        </form>
+    </div>
 </template>
 
 <style scoped>
@@ -116,4 +141,7 @@ input:focus, select:focus{
     outline: 3px solid rgb(122, 92, 250);
 }
 
+#modalAceptacion {
+    background-color: rgba(128, 128, 128, .6);
+}
 </style>
