@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import OperadorView from '../components/Operador-Ventana.vue';
 import ColaboradorView from '../components/Colaborador-Ventana.vue';
-import AdministradorView from "../components/PanelAdmin-view.vue";
 import Formulario from "../components/Formulario.vue";
 import InputView from "../components/Input-view.vue";
 import NotFoundView from "../components/NotFound-View.vue";

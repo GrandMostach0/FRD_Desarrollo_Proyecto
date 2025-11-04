@@ -29,7 +29,7 @@ const validatePin = () => {
         validationState.value = 'success'
         setTimeout(() => {
             resetState()
-            router.push('/')
+            router.push('/VistaPin')
         }, 2500)
     } else if (expiredPins.includes(pin.value)) {
         validationState.value = 'expired'
