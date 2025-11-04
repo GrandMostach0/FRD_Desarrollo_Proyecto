@@ -8,7 +8,8 @@ import InputView from './Input-view.vue';
   <main class="flex items-center gap-5 px-16 py-8">
 
     <div class="flex-1 rounded-2xl h-[500px] bg-white">
-      <MenuOpcionesVertical />
+      <MenuOpcionesVertical/>
+      
     </div>
     
     <div class="flex-3 bg-white rounded-2xl h-[90vh]">
