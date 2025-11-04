@@ -2,43 +2,48 @@
 import { ref } from 'vue'
 import closeIcon from '../assets/icons/close-icon.vue';
 import errorCircle from '../assets/icons/error-circle.vue';
+import checkCircle from '../assets/icons/check-circle.vue';
+import xCircle from '../assets/icons/x-circle.vue';
 
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const pin = ref('')
-const hasError = ref(false)
-const errorMessage = ref('')
+const validationState = ref('input')
 
 const validPins = ['1234', '5678', '9012']
 
 const closeModal = () => {
+    resetState()
     router.push('/');
 }
 
 const validatePin = () => {
     if (!pin.value) {
-        hasError.value = true
-        errorMessage.value = 'El PIN es requerido. Solicita uno nuevo para continuar'
         return
     }
     
     if (validPins.includes(pin.value)) {
-        hasError.value = false
-        errorMessage.value = ''
-        alert('PIN válido. Continuando...')
-        router.push('/')
+        validationState.value = 'success'
+        setTimeout(() => {
+            resetState()
+            router.push('/')
+        }, 2500)
     } else {
-        hasError.value = true
-        errorMessage.value = 'El PIN ha caducado. Solicita uno nuevo para continuar'
+        validationState.value = 'error'
+        setTimeout(() => {
+            resetState()
+        }, 2500)
     }
 }
 
-const resetError = () => {
-    hasError.value = false
-    errorMessage.value = ''
+const resetState = () => {
+    validationState.value = 'input'
     pin.value = ''
-    router.push('/')
+}
+
+const tryAgain = () => {
+    resetState()
 }
 
 </script>
@@ -49,26 +54,41 @@ const resetError = () => {
             <div @click="closeModal" class="absolute top-4 right-5 cursor-pointer text-gray-500">
                 <closeIcon/>
             </div>
-            <h2 class="text-2xl font-bold text-gray-600">Para continuar se necesita PIN de autorización.</h2>
-            <br>
-            <div class="relative">
-                <input 
-                    v-model="pin"
-                    class="block text-4xl font-extrabold" 
-                    :class="{ 'input-error': hasError }"
-                    maxlength="4" 
-                    type="text" 
-                    placeholder="1234"
-                    @input="hasError = false"
-                >
-                <div v-if="hasError" class="absolute right-4 top-1/2 -translate-y-1/2 text-red-500">
-                    <errorCircle />
+
+            <div v-if="validationState === 'input'" class="flex flex-col justify-around h-full">
+                <h2 class="text-2xl font-bold text-gray-600">Para continuar se necesita PIN de autorización.</h2>
+                <br>
+                <div class="relative">
+                    <input 
+                        v-model="pin"
+                        class="block text-4xl font-extrabold" 
+                        maxlength="4" 
+                        type="text" 
+                        placeholder="1234"
+                        @keyup.enter="validatePin"
+                    >
                 </div>
+                <br>
+                <button @click="validatePin">Confirmar</button>
             </div>
-            <p v-if="hasError" class="text-red-500 text-sm mt-1">{{ errorMessage }}</p>
-            <br>
-            <button v-if="!hasError" @click="validatePin">Confirmar</button>
-            <button v-else @click="resetError" class="bg-[#7A5CFA]">Cerrar</button>
+
+            <div v-else-if="validationState === 'success'" class="flex flex-col items-center justify-center h-full gap-6">
+                <div class="text-[#7A5CFA]">
+                    <checkCircle />
+                </div>
+                <p class="text-xl text-gray-700">
+                    El PIN es correcto. La<br>operación fue autorizada.
+                </p>
+            </div>
+
+            <div v-else-if="validationState === 'error'" class="flex flex-col items-center justify-center h-full gap-6">
+                <div class="text-[#7A5CFA]">
+                    <xCircle />
+                </div>
+                <p class="text-xl text-gray-700">
+                    El PIN es incorrecto.<br>Vuelva a intentarlo.
+                </p>
+            </div>
         </div>
     </div>
 </template>
