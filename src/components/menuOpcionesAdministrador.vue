@@ -29,8 +29,8 @@ const navigate = (path, name) => {
       </li>
 
       <li 
-        :class="{ activate: activeItem === 'pin' }"
-        @click="navigate('/VistaPin', 'pin')"
+        :class="{ activate: activeItem === 'historialPin' }"
+        @click="navigate('/panelAdmin/historialRegistros', 'historialPin')"
       >
         <filesIcons /> Historial de Solicitudes
       </li>

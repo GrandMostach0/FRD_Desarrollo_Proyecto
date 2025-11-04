@@ -12,7 +12,7 @@ import SolicitudView from './Solicitud-View.vue';
     </div>
     
     <div class="flex-3 bg-white rounded-2xl h-[90vh] p-5 overflow-y-scroll">
-      <SolicitudView />
+      <RouterView />
     </div>
 
   </main>

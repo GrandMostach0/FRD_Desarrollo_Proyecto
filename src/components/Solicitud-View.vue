@@ -35,7 +35,7 @@ const rechazar = () => {
     <br>
     <form action="" class="px-5 py-2 relative">
 
-        <div class="absolute -top-5 right-0 cursor-pointer">
+        <div @click="router.push('/panelAdmin/registrosSolicitud')"  class="absolute -top-5 right-0 cursor-pointer">
             <CloseIcon />
         </div>
 

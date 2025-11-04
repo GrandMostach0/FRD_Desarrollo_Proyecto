@@ -6,7 +6,9 @@ import solicitudCard from './solicitudCard.vue';
     <h2 class="text-center">SOLICITUDES DE SUCURSAL</h2>
 
     <div class="">
-        <solicitudCard fecha="22/10/2025" hora="10:30 A.M" nombre-sucursal="Sucursal El Paso" tipo-operacion="alta empeño" criticidad="alta"/>
+        <a href="/panelAdmin/detallesSolicitud">
+            <solicitudCard fecha="22/10/2025" hora="10:30 A.M" nombre-sucursal="Sucursal El Paso" tipo-operacion="alta empeño" criticidad="alta"/>
+        </a>
         <solicitudCard fecha="22/10/2025" hora="10:30 A.M" nombre-sucursal="Sucursal Las Flores " tipo-operacion="baja empeño" criticidad="media"/>
         <solicitudCard fecha="22/10/2025" hora="10:30 A.M" nombre-sucursal="Sucursal Paseo 60" tipo-operacion="alta empeño" criticidad="baja"/>
         <solicitudCard fecha="22/10/2025" hora="10:30 A.M" nombre-sucursal="Sucursal Montejo" tipo-operacion="baja empeño" criticidad="baja"/>
