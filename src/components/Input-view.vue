@@ -10,8 +10,10 @@ const router = useRouter();
 
 const pin = ref('')
 const validationState = ref('input')
+const errorMessage = ref('')
 
 const validPins = ['1234', '5678', '9012']
+const expiredPins = ['0000', '1111', '2222', '3333']
 
 const closeModal = () => {
     resetState()
@@ -29,6 +31,9 @@ const validatePin = () => {
             resetState()
             router.push('/')
         }, 2500)
+    } else if (expiredPins.includes(pin.value)) {
+        validationState.value = 'expired'
+        errorMessage.value = 'El PIN ha caducado. Solicita uno nuevo para continuar'
     } else {
         validationState.value = 'error'
         setTimeout(() => {
@@ -40,6 +45,7 @@ const validatePin = () => {
 const resetState = () => {
     validationState.value = 'input'
     pin.value = ''
+    errorMessage.value = ''
 }
 
 const tryAgain = () => {
@@ -55,21 +61,28 @@ const tryAgain = () => {
                 <closeIcon/>
             </div>
 
-            <div v-if="validationState === 'input'" class="flex flex-col justify-around h-full">
+            <div v-if="validationState === 'input' || validationState === 'expired'" class="flex flex-col justify-around h-full">
                 <h2 class="text-2xl font-bold text-gray-600">Para continuar se necesita PIN de autorización.</h2>
                 <br>
                 <div class="relative">
                     <input 
                         v-model="pin"
                         class="block text-4xl font-extrabold" 
+                        :class="{ 'input-error': validationState === 'expired' }"
                         maxlength="4" 
                         type="text" 
                         placeholder="1234"
                         @keyup.enter="validatePin"
+                        @input="validationState === 'expired' ? resetState() : null"
                     >
+                    <div v-if="validationState === 'expired'" class="absolute right-4 top-1/2 -translate-y-1/2 text-red-500">
+                        <errorCircle />
+                    </div>
                 </div>
+                <p v-if="validationState === 'expired'" class="text-red-500 text-sm mt-1">{{ errorMessage }}</p>
                 <br>
-                <button @click="validatePin">Confirmar</button>
+                <button v-if="validationState === 'input'" @click="validatePin">Confirmar</button>
+                <button v-else-if="validationState === 'expired'" @click="closeModal">Cerrar</button>
             </div>
 
             <div v-else-if="validationState === 'success'" class="flex flex-col items-center justify-center h-full gap-6">
