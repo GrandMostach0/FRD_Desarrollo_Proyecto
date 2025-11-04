@@ -1,6 +1,7 @@
 <script setup>
 import menuOpcionesAdministrador from './menuOpcionesAdministrador.vue';
 import ListaRegistrosCards from './ListaRegistros-cards.vue';
+import SolicitudView from './Solicitud-View.vue';
 </script>
 
 <template>
@@ -11,7 +12,7 @@ import ListaRegistrosCards from './ListaRegistros-cards.vue';
     </div>
     
     <div class="flex-3 bg-white rounded-2xl h-[90vh] p-5 overflow-y-scroll">
-      <ListaRegistrosCards />
+      <RouterView />
     </div>
 
   </main>

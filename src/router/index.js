@@ -7,6 +7,9 @@ import NotFoundView from "../components/NotFound-View.vue";
 
 // Vistas hijas de la parte de administrador
 import ListaRegistrosCards from "../components/ListaRegistros-cards.vue";
+import SolicitudView from "../components/Solicitud-View.vue";
+
+import HistorialRegistros from "../components/HistorialRegistros.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,7 +28,9 @@ const router = createRouter({
             name: 'administrador',
             component: AdministradorView,
             children: [
-                { path: 'registrosSolicitud', component: ListaRegistrosCards}
+                { path: 'registrosSolicitud', component: ListaRegistrosCards},
+                { path: 'detallesSolicitud', component: SolicitudView},
+                { path: 'historialRegistros', component: HistorialRegistros}
             ]
         },
         {
