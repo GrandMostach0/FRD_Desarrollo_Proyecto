@@ -2,6 +2,8 @@
 import menuOpcionesAdministrador from './menuOpcionesAdministrador.vue';
 import ListaRegistrosCards from './ListaRegistros-cards.vue';
 import SolicitudView from './Solicitud-View.vue';
+import Formulario from './Formulario.vue';
+  
 </script>
 
 <template>
@@ -12,7 +14,7 @@ import SolicitudView from './Solicitud-View.vue';
     </div>
     
     <div class="flex-3 bg-white rounded-2xl h-[90vh] p-5 overflow-y-scroll">
-      <RouterView />
+      <Formulario />
     </div>
 
   </main>
