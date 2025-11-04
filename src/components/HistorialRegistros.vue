@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
     import ListaRegistrosHisto from './ListaRegistrosHisto.vue';
     import SolicitudHistorialView from './Solicitud-Historial-View.vue';
 </script>
@@ -25,8 +25,4 @@
             </div>
         </div>
     </main>
-</template> -->
-
-<template>
-    <h1>hola</h1>
 </template>

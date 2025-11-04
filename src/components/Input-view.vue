@@ -17,7 +17,7 @@ const expiredPins = ['0000', '1111', '2222', '3333']
 
 const closeModal = () => {
     resetState()
-    router.push('/VistaPin');
+    router.push('/');
 }
 
 const validatePin = () => {
