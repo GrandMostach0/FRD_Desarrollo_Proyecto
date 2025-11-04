@@ -28,23 +28,25 @@ const getStatusColor = (status) => {
 
 <template>
   <div 
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+    class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4"
     @click.self="closeModal"
   >
-    <div class="bg-white rounded-lg p-8 max-w-md w-full relative">
+    <div class="bg-white rounded-lg p-10 max-w-xl w-full relative">
       <button 
         @click="closeModal"
-        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl"
+        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl cursor-pointer"
       >
         ×
       </button>
 
       <div class="border-2 border-gray-300 rounded-lg p-6">
         <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
-          <div>
+          
+          <div v-if="notification.pin">
             <p class="text-gray-500 text-xs mb-1">PIN DE AUTORIZACIÓN</p>
             <p class="font-semibold text-lg">{{ notification.pin }}</p>
           </div>
+
 
           <div>
             <p class="text-gray-500 text-xs mb-1">ID SUCURSAL</p>

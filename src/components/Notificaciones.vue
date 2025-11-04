@@ -10,16 +10,16 @@ const notifications = ref([
     date: '31/10/2025',
     time: '10:35 AM',
     type: 'Autorización de Cliente',
-    person: 'JUAN CARLOS ARANA',
+    person: 'JOSE EDUARDO',
     action: 'ALTA DE EMPEÑO',
     actionType: 'alta',
     pin: '1234',
     idSucursal: 'SUCURSAL LAS FLORES',
-    nombre: 'JUAN CARLOS',
+    nombre: 'JOSE EDUARDO',
     caja: 'N01',
-    apellidoPaterno: 'TORREZ',
+    apellidoPaterno: 'BALAAM',
     monto: '$3,000.00',
-    apellidoMaterno: 'ÁLVAREZ',
+    apellidoMaterno: 'VARGUEZ',
     tipoOperacion: 'ALTA DE EMPEÑO',
     ineOcr: 'ITNB23148',
     fechaSolicitud: '31/10/2025',
@@ -57,7 +57,7 @@ const notifications = ref([
     person: 'MARIA ISABEL CASTRO GÓMEZ',
     action: 'BAJA DE EMPEÑO',
     actionType: 'baja',
-    pin: '3316',
+    pin: '',
     idSucursal: 'SUCURSAL LAS FLORES',
     nombre: 'MARIA ISABEL',
     caja: 'N02',
@@ -136,7 +136,7 @@ const showMore = () => {
                 class="text-sm font-bold whitespace-nowrap"
                 :class="{
                   'text-[#7A5CFA]': notification.actionType === 'alta',
-                  'text-[#9B8CD8]': notification.actionType === 'baja'
+                  'text-[#9b8cd894]': notification.actionType === 'baja'
                 }"
               >
                 {{ notification.action }}

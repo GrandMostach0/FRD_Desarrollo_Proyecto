@@ -26,15 +26,15 @@ const props = defineProps ({
 </script>
 
 <template>
-    <div class="border flex items-center justify-between p-5 my-2 rounded-2xl cursor-pointer">
+    <div class="border border-[#7A5CFA] flex items-center justify-between p-5 my-2 rounded-2xl cursor-pointer">
         <div class="text-center">
-            <p>{{ fecha }}</p>
-            <h1 class="font-bold text-2xl text-gray-500">{{ hora }}</h1>
+            <p class="text-[#7A5CFA] font-bold text-xs">{{ fecha }}</p>
+            <h1 class="font-bold text-xl text-gray-500">{{ hora }}</h1>
         </div>
 
         <h1 class="uppercase text-gray-500 font-bold text-3xl">{{ nombreSucursal }}</h1>
 
-        <p class="uppercase text-sm text-gray-500 ">{{ tipoOperacion }}</p>
+        <p class="uppercase text-sm text-gray-700 ">{{ tipoOperacion }}</p>
 
         <h1
             :class="criticidad === 'alta' ? 'alta' : criticidad === 'media' ? 'media' : 'baja'"

@@ -15,12 +15,8 @@ const navigate = (path, name) => {
 </script>
 
 <template>
-  <p class="font-bold text-[#7A5CFA] p-5">
-    <listIcon />
-  </p>
-
-  <div>
-    <ol>
+  <div class="h-full flex flex-col p-5">
+    <ol class="space-y-2">
       <li 
         :class="{ activate: activeItem === 'registros' }"
         @click="navigate('/panelAdmin/registrosSolicitud', 'registros')"
@@ -42,17 +38,25 @@ const navigate = (path, name) => {
 li {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
-  margin-bottom: 10px;
-  gap: 5px;
+  padding: 12px 20px;
+  margin-bottom: 8px;
+  gap: 8px;
   cursor: pointer;
   color: #b6b6b6;
   font-weight: bold;
+  font-size: 14px;
+  transition: all 0.2s;
+  border-radius: 8px;
+}
+
+li:hover {
+  background-color: #f9f8ff;
 }
 
 li.activate {
   color: #7A5CFA;
-  border-right: 4px solid #7A5CFA;
+  border-left: 4px solid #7A5CFA;
   background-color: #f3f0ff;
+  padding-left: 16px;
 }
 </style>

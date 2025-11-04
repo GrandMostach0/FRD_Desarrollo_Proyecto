@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"
         class="icon icon-tabler icons-tabler-filled icon-tabler-file-text">
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path
