@@ -15,6 +15,7 @@ const aprobar = () => {
     
     setTimeout(() => {
         mostrarModal.value = false;
+        router.push('/panelAdmin/registrosSolicitud');
     }, 1500);
 };
 
@@ -24,6 +25,7 @@ const rechazar = () => {
     
     setTimeout(() => {
         mostrarModal.value = false;
+        router.push('/panelAdmin/registrosSolicitud');
     }, 1500);
 };
 
@@ -40,7 +42,7 @@ const rechazar = () => {
         </div>
 
         <!-- MODAL OKEY -->
-        <div v-show="mostrarModal" id="modalAceptacion" class="absolute w-full h-full flex items-center justify-center z-5">
+        <div v-show="mostrarModal" id="modalAceptacion" class="absolute w-full h-full flex items-center justify-center z-5 cursor-default">
             <div class="bg-[#F2F2F7] w-[50%] h-[50%] rounded-2xl flex items-center justify-around flex-col"
                  :class="tipoAccion === 'aprobar' ? 'text-[#00FF26]' : 'text-[#FF0000]'">
                 <div class="border-8 p-3 rounded-full">
