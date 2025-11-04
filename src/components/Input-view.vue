@@ -1,11 +1,44 @@
 <script setup>
+import { ref } from 'vue'
 import closeIcon from '../assets/icons/close-icon.vue';
+import errorCircle from '../assets/icons/error-circle.vue';
 
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
+const pin = ref('')
+const hasError = ref(false)
+const errorMessage = ref('')
+
+const validPins = ['1234', '5678', '9012']
+
 const closeModal = () => {
     router.push('/');
+}
+
+const validatePin = () => {
+    if (!pin.value) {
+        hasError.value = true
+        errorMessage.value = 'El PIN es requerido. Solicita uno nuevo para continuar'
+        return
+    }
+    
+    if (validPins.includes(pin.value)) {
+        hasError.value = false
+        errorMessage.value = ''
+        alert('PIN válido. Continuando...')
+        router.push('/')
+    } else {
+        hasError.value = true
+        errorMessage.value = 'El PIN ha caducado. Solicita uno nuevo para continuar'
+    }
+}
+
+const resetError = () => {
+    hasError.value = false
+    errorMessage.value = ''
+    pin.value = ''
+    router.push('/')
 }
 
 </script>
@@ -18,9 +51,24 @@ const closeModal = () => {
             </div>
             <h2 class="text-2xl font-bold text-gray-600">Para continuar se necesita PIN de autorización.</h2>
             <br>
-            <input class="block text-4xl font-extrabold" maxlength="4" type="text" placeholder="1234">
+            <div class="relative">
+                <input 
+                    v-model="pin"
+                    class="block text-4xl font-extrabold" 
+                    :class="{ 'input-error': hasError }"
+                    maxlength="4" 
+                    type="text" 
+                    placeholder="1234"
+                    @input="hasError = false"
+                >
+                <div v-if="hasError" class="absolute right-4 top-1/2 -translate-y-1/2 text-red-500">
+                    <errorCircle />
+                </div>
+            </div>
+            <p v-if="hasError" class="text-red-500 text-sm mt-1">{{ errorMessage }}</p>
             <br>
-            <button>Confirmar</button>
+            <button v-if="!hasError" @click="validatePin">Confirmar</button>
+            <button v-else @click="resetError" class="bg-[#7A5CFA]">Cerrar</button>
         </div>
     </div>
 </template>
@@ -29,11 +77,16 @@ const closeModal = () => {
 
 input{
     width: 100%;
-    padding: 20px 0px;
+    padding: 20px 50px 20px 20px;
     border: 1px solid rgba(128, 128, 128, .5);
     border-radius: 10px;
     text-transform: uppercase;
     text-align: center;
+}
+
+input.input-error {
+    border-color: #ef4444;
+    color: #ef4444;
 }
 
 button{
