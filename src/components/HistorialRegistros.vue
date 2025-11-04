@@ -5,14 +5,15 @@
 
 <template>
     <main class="flex gap-8 p-1 h-[99%] overflow-hidden">
-        <div id="buscador" class="flex flex-col gap-4 w-[30%] overflow-y-auto bg-[#e9e9e9] [direction:rtl]">
+        <div id="buscador" class="flex flex-col gap-4 w-[30%] overflow-y-auto p-2 [direction:rtl]">
             <input
                 type="text"
                 v-model="searchQuery"
                 placeholder="BÚSQUEDA..."
-                class="p-2 border rounded-lg [direction:ltr]"
+                class="p-2 border rounded-2xl [direction:ltr]"
             />
-            <div id="card-histo ">
+
+            <div id="card-histo">
                 <ListaRegistrosHisto class="[direction:ltr]"/>
             </div>
             

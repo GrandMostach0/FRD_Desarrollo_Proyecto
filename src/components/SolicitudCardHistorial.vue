@@ -28,15 +28,13 @@ const props = defineProps ({
             <icon-build class="w-20 h-20"/>
         </div> 
         
-        <div id="Card-datos" class="" >
+        <div id="Card-datos">
             
-            <h1 class="text-[90%]">{{ nombreSucursal }}</h1>
-            <div>
-                <p class="text-[70%]">{{ fecha }} {{ hora }}</p>
-            </div>
+            <h1 class="">{{ nombreSucursal }}</h1>
+            <p class="text-xs">{{ fecha }} {{ hora }}</p>
             <h1
                 :class="status === 'RECHAZADO' ? 'alta'  : 'baja'"
-                class="uppercase font-bold"
+                class="uppercase font-bold text-center"
             >{{ status }}</h1>
         </div>
     </div>
