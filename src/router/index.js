@@ -4,12 +4,15 @@ import AdministradorView from "../components/PanelAdmin-view.vue";
 import Formulario from "../components/Formulario.vue";
 import InputView from "../components/Input-view.vue";
 import NotFoundView from "../components/NotFound-View.vue";
+import InicioAdmView from "../components/InicioAdmView.vue";
 
 // Vistas hijas de la parte de administrador
 import ListaRegistrosCards from "../components/ListaRegistros-cards.vue";
+
 import SolicitudView from "../components/Solicitud-View.vue";
 
 import HistorialRegistros from "../components/HistorialRegistros.vue";
+import PanelAdminView from "../components/PanelAdmin-view.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,9 +27,14 @@ const router = createRouter({
             ]
         },
         {
+            path: '/MenuAdmin',
+            name: 'menu-administrador',
+            component: InicioAdmView
+        },
+        {
             path: '/panelAdmin',
             name: 'administrador',
-            component: AdministradorView,
+            component: PanelAdminView,
             children: [
                 { path: 'registrosSolicitud', component: ListaRegistrosCards},
                 { path: 'detallesSolicitud', component: SolicitudView},
