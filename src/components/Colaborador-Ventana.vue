@@ -11,7 +11,7 @@ import formularioPinView from './formulario-pin-view.vue';
     </div>
     
     <div class="flex-3 bg-white h-[90vh] shadow-sm p-5 rounded-2xl">
-      <formularioPinView />
+      <RouterView />
     </div>
 
   </main>
