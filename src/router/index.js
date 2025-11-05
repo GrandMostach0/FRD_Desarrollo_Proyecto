@@ -15,6 +15,7 @@ import SolicitudView from "../components/Solicitud-View.vue";
 
 import HistorialRegistros from "../components/HistorialRegistros.vue";
 import PanelAdminView from "../components/PanelAdmin-view.vue";
+import formularioPinView from "../components/formulario-pin-view.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,7 +32,8 @@ const router = createRouter({
                 { path: '/bienvenido', component: Bienvenido},
                 { path: '/solicitud', component: Formulario},
                 { path: '/VistaPin', component: InputView},
-                { path: '/notificaciones', component: Notificaciones}
+                { path: '/VistaFormularioPin', component: formularioPinView},
+                { path: '/notificaciones', component: Notificaciones},
             ]
         },
         {

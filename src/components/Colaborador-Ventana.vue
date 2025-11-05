@@ -1,5 +1,6 @@
 <script setup>
 import menuColaborador from './menuColaborador.vue';
+import formularioPinView from './formulario-pin-view.vue';
 </script>
 
 <template>
@@ -9,8 +10,8 @@ import menuColaborador from './menuColaborador.vue';
       <menuColaborador />
     </div>
     
-    <div class="flex-3 bg-white rounded-2xl h-[90vh] shadow-sm">
-      <RouterView />
+    <div class="flex-3 bg-white h-[90vh] shadow-sm p-5 rounded-2xl">
+      <formularioPinView />
     </div>
 
   </main>
