@@ -1,17 +1,18 @@
+<!-- Vista del Menú del administrador: Recepción de solicitudes y Historial de solicitudes-->
 <script setup>
-import fileIcon from '../assets/icons/file-icon.vue'
-import filesIcons from '../assets/icons/files-icons.vue'
+  import fileIcon from '../assets/icons/file-icon.vue'
+  import filesIcons from '../assets/icons/files-icons.vue'
 
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+  import { ref } from 'vue' 
+  import { useRouter } from 'vue-router'
 
-const router = useRouter()
-const activeItem = ref('')
+  const router = useRouter()
+  const activeItem = ref('')
 
-const navigate = (path, name) => {
-  activeItem.value = name
-  router.push(path)
-}
+  const navigate = (path, name) => {
+    activeItem.value = name
+    router.push(path)
+  }
 </script>
 
 <template>
@@ -25,8 +26,8 @@ const navigate = (path, name) => {
       </li>
 
       <li 
-        :class="{ activate: activeItem === 'historialPin' }"
-        @click="navigate('/panelAdmin/historialRegistros', 'historialPin')"
+        :class="{ activate: activeItem === 'historial' }"
+        @click="navigate('/panelAdmin/historialRegistros', 'historial')"
       >
         <filesIcons /> Historial de Solicitudes
       </li>

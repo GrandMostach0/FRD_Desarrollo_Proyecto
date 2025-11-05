@@ -1,3 +1,4 @@
+<!-- Vista de una solicitud detallada dentro del historial  -->
 <script setup>
 
 </script>
