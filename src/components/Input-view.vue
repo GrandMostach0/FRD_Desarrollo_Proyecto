@@ -71,7 +71,7 @@ const tryAgain = () => {
                         :class="{ 'input-error': validationState === 'expired' }"
                         maxlength="4" 
                         type="text" 
-                        placeholder="1234"
+                        placeholder="PIN"
                         @keyup.enter="validatePin"
                         @input="validationState === 'expired' ? resetState() : null"
                     >

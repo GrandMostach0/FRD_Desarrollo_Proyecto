@@ -39,36 +39,35 @@ const aprobar = () => {
                 <div class="flex-1">
                     <div class="containerInputs">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombreInput" placeholder="JUAN CARLOS" required>
+                        <input type="text" name="nombre" id="nombreInput" placeholder="" required>
                     </div>
 
                     <div class="containerInputs">
                         <label for="apellidoPaterno">apellido paterno</label>
-                        <input type="text" name="apellidoPaterno" id="apellidoPaternoInput" placeholder="TORRES">
+                        <input type="text" name="apellidoPaterno" id="apellidoPaternoInput" placeholder="">
                     </div>
 
                     <div class="containerInputs">
                         <label for="apellidoMaterno">apellido materno</label>
-                        <input type="text" name="apellidoMaterno" id="apellidoMaternoInput" placeholder="ÁLVARES">
+                        <input type="text" name="apellidoMaterno" id="apellidoMaternoInput" placeholder="">
                     </div>
 
                     <div class="containerInputs">
                         <label for="ine">ine (ocr)</label>
-                        <input type="text" name="ine" id="ineInput" maxlength="13" placeholder="IINB78976">
-                        <span class="text-xs text-[#EB5757]">Error message informing me of a problem</span>
+                        <input type="text" name="ine" id="ineInput" maxlength="13" placeholder="">
+                        <span class="text-xs text-[#EB5757]"></span>
                     </div>
                     
                     <div class="containerInputs">
                         <label for="colaborador">Colaborador</label>
-                        <input type="text" name="colaborador" id="colaboradorInput" placeholder="MARÍA MARTINEZ BARRERA">
+                        <input type="text" name="colaborador" id="colaboradorInput" placeholder="">
                     </div>
                 </div>
 
                 <div class="flex-1">
                     <div class="containerInputs">
                         <label for="selectSucursal">nombre de la sucursal</label>
-                        <select name="selectSucursal" id="selectSucursal">
-                            <option value="1">Buscar</option>
+                        <select name="selectSucursal" id="selectSucursal" placeholder="BUSCAR">
                             <option value="2">Sucursal 1</option>
                             <option value="3">Sucursal 2</option>
                         </select>
@@ -76,7 +75,7 @@ const aprobar = () => {
 
                     <div class="containerInputs">
                         <label for="caja">caja</label>
-                        <input type="text" name="caja" id="cajaInput" placeholder="N01">
+                        <input type="text" name="caja" id="cajaInput" placeholder="">
                     </div>
 
                     <div class="sin-flechitas containerInputs">
