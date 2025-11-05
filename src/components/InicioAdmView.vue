@@ -1,3 +1,4 @@
+<!-- Vista de Inicio  -->
 <script setup>
     import paper from '../assets/icons/paper.vue';
     import historialSolicitud from '../assets/icons/historial-solicitud.vue';
@@ -6,6 +7,9 @@
 
     function goToRecepcion() {
         router.push('/panelAdmin/registrosSolicitud')
+    }
+    function goToHistorial() {
+        router.push('/panelAdmin/historialRegistros')
     }
 </script>
 
@@ -23,7 +27,8 @@
             <span class="admi">Recepción de Solicitudes</span>
         </button>
 
-        <button class="p-10 border-4 border-transparent hover:border-[#111111] bg-[#d2d1d3] rounded-[90px] transition-all duration-200 transform hover:scale-105"> 
+        <button @click="goToHistorial"
+        class="p-10 border-4 border-transparent hover:border-[#111111] bg-[#d2d1d3] rounded-[90px] transition-all duration-200 transform hover:scale-105"> 
             <historialSolicitud class="w-80 h-80 transform rotate-180"/> 
             <span class="" >Historial de Solicitudes</span>
         </button>

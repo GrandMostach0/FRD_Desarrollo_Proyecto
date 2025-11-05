@@ -1,10 +1,11 @@
-<script setup>
+<!-- Vista del Historial de solicitudes -->
+<script setup>      
     import ListaRegistrosHisto from './ListaRegistrosHisto.vue';
     import SolicitudHistorialView from './Solicitud-Historial-View.vue';
     import SearchIcon from '../assets/icons/Search-icon.vue';
 </script>
 
-<template>
+<template>          
     <main class="flex gap-8 p-1 h-[99%] overflow-hidden">
         <div id="buscador" class="flex flex-col gap-4 w-[30%] overflow-y-auto p-2 [direction:rtl]">
             <div id="barra-buscadora" class="relative w-full max-w-md" >
