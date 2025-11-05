@@ -15,15 +15,20 @@ const closeModal = () => {
 }
 
 const getStatusColor = (status) => {
-  switch(status) {
+  if (!status) return 'text-gray-600'
+  const cleanStatus = status.toString().trim().toUpperCase()
+
+  switch (cleanStatus) {
     case 'APROBADO':
-      return 'text-[#7A5CFA]'
+      return 'text-green-500' // clase Tailwind válida
     case 'RECHAZADO':
-      return 'text-[#9B8CD8]'
+      return 'text-red-500'
     default:
       return 'text-gray-600'
   }
 }
+
+
 </script>
 
 <template>
@@ -42,7 +47,7 @@ const getStatusColor = (status) => {
       <div class="border-2 border-gray-300 rounded-lg p-6">
         <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
           
-          <div v-if="notification.pin">
+          <div v-if="notification.status === 'APROBADO'">
             <p class="text-gray-500 text-xs mb-1">PIN DE AUTORIZACIÓN</p>
             <p class="font-semibold text-lg">{{ notification.pin }}</p>
           </div>

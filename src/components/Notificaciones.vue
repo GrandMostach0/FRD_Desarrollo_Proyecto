@@ -57,7 +57,7 @@ const notifications = ref([
     person: 'MARIA ISABEL CASTRO GÓMEZ',
     action: 'BAJA DE EMPEÑO',
     actionType: 'baja',
-    pin: '',
+    pin: '4430',
     idSucursal: 'SUCURSAL LAS FLORES',
     nombre: 'MARIA ISABEL',
     caja: 'N02',
